@@ -6,7 +6,9 @@
     "test": "test"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "protractor": "~1.4.0"
+  },
   "scripts": {
     "test": "/usr/local/bin/protractor test/protractor.conf.js"
   },
