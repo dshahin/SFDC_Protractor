@@ -15,8 +15,7 @@ describe("health", function(){
 			username.sendKeys(process.env.SFDC_USERNAME);
 			password.sendKeys(process.env.SFDC_PASSWORD);
 			loginButton.click();
-			//button.click();
-			browser.wait(function(){},10000);
+			//browser.wait(function(){},10000);
 		});
 	});
 });

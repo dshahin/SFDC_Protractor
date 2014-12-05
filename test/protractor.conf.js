@@ -1,4 +1,4 @@
 exports.config = {
 	specs: ['./e2e/**/*.spec.js'],
-	baseUrl : 'https://login.salesforce.com:w'
+	baseUrl : process.env.SFDC_LOGIN_URL
 };
