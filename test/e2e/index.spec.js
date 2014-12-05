@@ -8,14 +8,25 @@ describe("health", function(){
 			expect( browser.getTitle() ).toBe('salesforce.com - Customer Secure Login Page');
 		});
 
-		it("should display on click", function(){
+		it("it should login", function(){
 			var username = element(by.id('username')),
 				password = element(by.id('password')),
-				loginButton = element(by.id('Login'));
-			username.sendKeys(process.env.SFDC_USERNAME);
-			password.sendKeys(process.env.SFDC_PASSWORD);
-			loginButton.click();
-			//browser.wait(function(){},10000);
+				loginButton = element(by.id('Login')),
+				currentUrl;
+
+			browser.getCurrentUrl().then(function(url){
+				currentUrl = url;
+			}).then(function(){
+				username.sendKeys(process.env.SFDC_USERNAME);
+				password.sendKeys(process.env.SFDC_PASSWORD);
+				loginButton.click().then(function(){
+					browser.wait(function() {
+			            return browser.getCurrentUrl().then(function (url) {
+			                return url !== currentUrl;
+			            });
+			        },10000);
+				});
+			});
 		});
 	});
 });
