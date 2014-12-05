@@ -1,0 +1,16 @@
+{
+  "name": "SFDC_Protractor",
+  "version": "0.0.0",
+  "description": "",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "/usr/local/bin/protractor test/protractor.conf.js"
+  },
+  "author": "dan shahin",
+  "license": "ISC"
+}
