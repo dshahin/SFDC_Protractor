@@ -43,6 +43,26 @@ describe("health", function(){
 				            });
 				        },10000);
 				    });
+				}).then(function(){
+
+					// var switcherLink = element(by.id('em button'));
+					// switcherLink.click();
+
+					browser.switchTo().frame(browser.findElement(by.id('ext-comp-1006')));
+
+
+
+					var patientLink = element(by.cssContainingText('a', 'Patient, Pete'));
+					patientLink.click().then(function(){
+
+
+						browser.wait(function() {
+							browser.switchTo().frame(browser.findElement(by.id('ext-comp-1014')));
+				            // return browser.getCurrentUrl().then(function (url) {
+				            //     return url.indexOf('/console') > -1;
+				            // });
+				        },10000);
+				    });
 				});
 			});
 		});
