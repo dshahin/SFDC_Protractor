@@ -56,12 +56,12 @@ describe("health", function(){
 					patientLink.click().then(function(){
 
 
-						browser.wait(function() {
-							browser.switchTo().frame(browser.findElement(by.id('ext-comp-1014')));
+						//browser.wait(function() {
+							//browser.switchTo().frame(browser.findElement(by.id('ext-comp-1014')));
 				            // return browser.getCurrentUrl().then(function (url) {
 				            //     return url.indexOf('/console') > -1;
 				            // });
-				        },10000);
+				        //},10000);
 				    });
 				});
 			});
