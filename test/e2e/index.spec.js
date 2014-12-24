@@ -20,11 +20,29 @@ describe("health", function(){
 				username.sendKeys(process.env.SFDC_USERNAME);
 				password.sendKeys(process.env.SFDC_PASSWORD);
 				loginButton.click().then(function(){
+					//wait for intermittent screen
 					browser.wait(function() {
 			            return browser.getCurrentUrl().then(function (url) {
 			                return url !== currentUrl;
 			            });
-			        },10000);
+			        },10000)
+				}).then(function(){
+					//wait for home screen
+					browser.wait(function() {
+			            return browser.getTitle().then(function (title) {
+			                return title == 'Force.com Home Page ~ salesforce.com - Developer Edition';
+			            });
+			        },10000)
+				}).then(function(){
+					//click on console
+					var consoleLink = element(by.cssContainingText('a', 'Back to Sample Console'));
+					consoleLink.click().then(function(){
+						browser.wait(function() {
+				            return browser.getCurrentUrl().then(function (url) {
+				                return url.indexOf('/console') > -1;
+				            });
+				        },10000);
+				    });
 				});
 			});
 		});
